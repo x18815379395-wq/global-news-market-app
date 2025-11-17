@@ -1,0 +1,34 @@
+# Minimal example demonstrating the structure expected by news/config_loader.py
+
+global_settings:
+  news_pages: 2
+  news_page_size: 25
+  news_days: 2
+
+traditional_media:
+  wsj_rss:
+    feeds:
+      - https://feeds.a.dj.com/rss/RSSMarketsMain.xml
+      - https://feeds.a.dj.com/rss/RSSWorldNews.xml
+    display_name: Wall Street Journal
+    limit: 15
+    market: us
+    topics: [markets, economy]
+  bloomberg_rss:
+    feeds:
+      - https://www.bloomberg.com/feed/podcast/etcs.rss
+    display_name: Bloomberg Markets
+    limit: 15
+    market: global
+
+social_media:
+  trump_truth:
+    platform: truth
+    handle: realDonaldTrump
+    limit: 6
+    market: us
+  trump_x:
+    platform: x
+    handle: realDonaldTrump
+    limit: 6
+    market: us
