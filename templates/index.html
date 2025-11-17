@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HorizonScanner 新闻分析信号面板</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #0ea5e9;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .timestamp {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        /* Signal panel table styling */
+        .signal-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #1e293b;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .signal-table th {
+            background-color: #334155;
+            color: #f1f5f9;
+            text-align: center;
+            padding: 1rem;
+            font-weight: 600;
+            border: 1px solid #475569;
+            font-size: 1rem;
+        }
+
+        .signal-table td {
+            padding: 1rem;
+            border: 1px solid #334155;
+            vertical-align: top;
+        }
+
+        .signal-table tr:nth-child(even) {
+            background-color: #253446;
+        }
+
+        .signal-table tr:hover {
+            background-color: #334155;
+        }
+
+        .title {
+            font-weight: 600;
+            color: #f1f5f9;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .description {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+            line-height: 1.5;
+        }
+
+        .source {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+            font-weight: 500;
+        }
+
+        .time-stamp {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .market-tags {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .market-tag {
+            background-color: #334155;
+            color: #f1f5f9;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            display: inline-block;
+            max-width: 200px;
+            word-break: break-word;
+        }
+
+        .deepseek-evaluation {
+            font-weight: 700;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            display: inline-block;
+            min-width: 80px;
+        }
+
+        .evaluation-long {
+            color: #10b981;
+            background-color: rgba(16, 185, 129, 0.15);
+        }
+
+        .evaluation-short {
+            color: #ef4444;
+            background-color: rgba(239, 68, 68, 0.15);
+        }
+
+        .evaluation-neutral {
+            color: #f59e0b;
+            background-color: rgba(245, 158, 11, 0.15);
+        }
+
+        .trading-suggestion {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .confidence-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .confidence-bar {
+            width: 100%;
+            height: 12px;
+            background-color: #334155;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .confidence-level {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #0ea5e9);
+        }
+
+        .confidence-text {
+            font-size: 1rem;
+            color: #f1f5f9;
+            font-weight: 600;
+        }
+
+        .info-box {
+            background-color: #1e293b;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-left: 4px solid #0ea5e9;
+        }
+
+        .info-title {
+            color: #0ea5e9;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .info-content {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .info-content ul {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .info-content li {
+            margin-bottom: 0.5rem;
+        }
+        .action-buttons {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 15px;
+            background: #1e293b;
+            border-radius: 8px;
+            border: 1px solid #334155;
+        }
+
+        .action-btn {
+            background-color: #0ea5e9;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0 10px;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .action-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .report-panel {
+            background-color: #1e293b;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            padding: 1.5rem;
+            margin: 1rem 0 2rem;
+        }
+
+        .report-title {
+            color: #0ea5e9;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .report-placeholder {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .report-headline {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .report-title-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .report-subtitle {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        .report-meta {
+            display: flex;
+            gap: 0.5rem;
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        .report-metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .report-metric {
+            background-color: #243044;
+            border-radius: 8px;
+            padding: 0.75rem;
+        }
+
+        .report-metric-label {
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        .report-metric-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #f1f5f9;
+        }
+
+        .report-metric-note {
+            color: #94a3b8;
+            font-size: 0.75rem;
+        }
+
+        .report-section-title {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .report-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .report-list li {
+            background-color: #243044;
+            border-radius: 6px;
+            padding: 0.75rem;
+        }
+
+        .report-position-name {
+            font-weight: 600;
+        }
+
+        .report-position-note {
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        .report-insights {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .refresh-status {
+            text-align: center;
+            margin-top: 0.75rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .refresh-status span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .action-btn:hover {
+            background-color: #0284c7;
+        }
+
+        .action-btn-secondary {
+            background-color: #1e293b;
+            color: #94a3b8;
+            border: 1px solid #334155;
+        }
+
+        .action-btn-secondary:hover {
+            background-color: #475569;
+        }
+
+        .action-btn-success {
+            background-color: #10b981;
+        }
+
+        .action-btn-success:hover {
+            background-color: #059669;
+        }
+
+        .disclaimer {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #1e293b;
+            border-radius: 8px;
+            border-left: 4px solid #ef4444;
+            line-height: 1.6;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #94a3b8;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #334155;
+            border-top: 4px solid #0ea5e9;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error {
+            color: #ef4444;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .no-data {
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .market-combo {
+            margin-bottom: 0.25rem;
+        }
+
+        .market-combo-title {
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 0.25rem;
+        }
+
+        .market-combo-stocks {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .market-combo-stock {
+            background-color: #475569;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>HorizonScanner</h1>
+            <p>全球市场实时信号监控系统</p>
+        </div>
+
+        <div class="timestamp" id="timestamp">全球市场实时信号（2025-11-12 14:30 更新）</div>
+
+        <div class="signal-table-container">
+            <table class="signal-table">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>新闻标题</th>
+                        <th>来源</th>
+                        <th>时间</th>
+                        <th>相关市场/标的</th>
+                        <th>DeepSeek评价</th>
+                        <th>交易建议</th>
+                        <th>置信度</th>
+                    </tr>
+                </thead>
+                <tbody id="news-table-body">
+                    <tr>
+                        <td colspan="8" class="loading">
+                            <div class="loading-spinner"></div>
+                            <p>正在加载全球市场信号...</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-box">
+            <div class="info-title">信号分析说明</div>
+            <div class="info-content">
+                <ul>
+                    <li><strong>信号强度</strong>：基于信息稀缺性、市场影响力、历史准确率综合计算</li>
+                    <li><strong>交易建议</strong>：已考虑全球市场联动与对冲需求，包含具体入场/出场策略</li>
+                    <li><strong>衍生品策略</strong>：期权/期货策略已计算保证金要求与风险敞口</li>
+                    <li><strong>数据延迟</strong>：&lt;15秒 (六大市场平均)</li>
+                    <li><strong>信号刷新</strong>：每30秒自动更新，重大新闻实时推送</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="action-btn" id="refresh-btn">🔄 刷新信号</button>
+            <button class="action-btn action-btn-secondary" id="report-btn">📊 生成回测报告</button>
+        </div>
+        <div class="report-panel">
+            <div class="report-title">策略回测报告</div>
+            <div class="report-content" id="report-content">
+                <p class="report-placeholder">点击上方「生成回测报告」获取最新 T+3 窗口摘要。</p>
+            </div>
+        </div>
+        <div class="refresh-status">
+            <span id="refresh-status-text">系统正在准备最新信号...</span>
+            <span id="refresh-countdown-text">距离下一次刷新：--s</span>
+        </div>
+
+        <div class="disclaimer">
+            <strong>⚠️ 免责声明</strong>：以上交易建议由HorizonScanner系统自动生成，基于历史数据与算法模型，不构成任何投资建议。衍生品交易具有高风险，可能导致本金全部损失。请根据自身风险承受能力谨慎决策。系统信号准确率历史统计为76.3%，过去表现不代表未来结果。投资有风险，入市须谨慎。
+        </div>
+    </div>
+
+    <script>
+        const REFRESH_INTERVAL_SECONDS = 30;
+        let isRefreshing = false;
+        let refreshCountdownTimer = null;
+        let refreshCountdownSeconds = REFRESH_INTERVAL_SECONDS;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const refreshBtn = document.getElementById('refresh-btn');
+            if (refreshBtn) {
+                refreshBtn.addEventListener('click', function() {
+                    loadNews({ trigger: 'manual' });
+                });
+            }
+            setRefreshStatus('系统正在加载最新信号...');
+            setCountdownDisplay('--');
+            loadNews({ trigger: 'initial' });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const reportBtn = document.getElementById('report-btn');
+            if (reportBtn) {
+                reportBtn.addEventListener('click', function() {
+                    generateReport();
+                });
+            }
+        });
+
+        function setRefreshStatus(message) {
+            const statusElement = document.getElementById('refresh-status-text');
+            if (statusElement) {
+                statusElement.textContent = message;
+            }
+        }
+
+        function setCountdownDisplay(value) {
+            const countdownElement = document.getElementById('refresh-countdown-text');
+            if (countdownElement) {
+                countdownElement.textContent = value === '--' 
+                    ? '距离下一次刷新：--s'
+                    : `距离下一次刷新：${value}s`;
+            }
+        }
+
+        function setRefreshButtonState(loading) {
+            const refreshBtn = document.getElementById('refresh-btn');
+            if (!refreshBtn) return;
+            refreshBtn.disabled = loading;
+            refreshBtn.textContent = loading ? '⏳ 刷新中...' : '🔄 刷新信号';
+        }
+
+        function stopRefreshCountdown() {
+            if (refreshCountdownTimer) {
+                clearInterval(refreshCountdownTimer);
+                refreshCountdownTimer = null;
+            }
+        }
+
+        function startRefreshCountdown() {
+            stopRefreshCountdown();
+            refreshCountdownSeconds = REFRESH_INTERVAL_SECONDS;
+            setCountdownDisplay(refreshCountdownSeconds);
+            refreshCountdownTimer = setInterval(() => {
+                refreshCountdownSeconds -= 1;
+                if (refreshCountdownSeconds <= 0) {
+                    stopRefreshCountdown();
+                    setCountdownDisplay(0);
+                    triggerAutoRefresh();
+                } else {
+                    setCountdownDisplay(refreshCountdownSeconds);
+                }
+            }, 1000);
+        }
+
+        function triggerAutoRefresh() {
+            loadNews({
+                trigger: 'auto',
+                showTableLoader: false,
+                preserveTableOnError: true
+            });
+        }
+
+        function formatTimeWithSeconds(date) {
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            const seconds = String(date.getSeconds()).padStart(2, '0');
+            return `${hours}:${minutes}:${seconds}`;
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function formatDisplayTime(timestamp) {
+            if (!timestamp) return '';
+            const date = new Date(timestamp);
+            if (Number.isNaN(date.getTime())) return '';
+            const formattedDate = date.getFullYear() + '-' + 
+                                String(date.getMonth() + 1).padStart(2, '0') + '-' + 
+                                String(date.getDate()).padStart(2, '0');
+            const formattedTime = String(date.getHours()).padStart(2, '0') + ':' + 
+                                String(date.getMinutes()).padStart(2, '0');
+            return `${formattedDate} ${formattedTime}`;
+        }
+
+        async function loadNews(options = {}) {
+            const {
+                showTableLoader = true,
+                trigger = 'manual',
+                preserveTableOnError = false
+            } = options;
+
+            if (isRefreshing) {
+                return;
+            }
+
+            const tableBody = document.getElementById('news-table-body');
+            isRefreshing = true;
+            setRefreshButtonState(true);
+            stopRefreshCountdown();
+            setCountdownDisplay('--');
+
+            if (trigger === 'auto') {
+                setRefreshStatus('正在自动刷新信号...');
+            } else if (trigger === 'initial') {
+                setRefreshStatus('正在加载最新信号...');
+            } else {
+                setRefreshStatus('正在刷新信号...');
+            }
+
+            try {
+                if (showTableLoader && tableBody) {
+                    tableBody.innerHTML = 
+                        `<tr><td colspan="8" class="loading"><div class="loading-spinner"></div><p>正在加载全球市场信号...</p></td></tr>`;
+                }
+                
+                const response = await fetch('/api/horizon-scanner-data');
+                if (!response.ok) {
+                    throw new Error(`API request failed with status ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (data.status === 'success') {
+                    updateTimestamp(data.timestamp);
+                    displayNews(data.signals);
+                    setRefreshStatus(`刷新完成：${formatTimeWithSeconds(new Date())}`);
+                } else {
+                    throw new Error(data.error || 'Unknown error occurred');
+                }
+            } catch (error) {
+                console.error('Error loading news:', error);
+                if (tableBody && !preserveTableOnError) {
+                    const safeMessage = escapeHtml(error.message || 'Unknown error');
+                    tableBody.innerHTML = 
+                        `<tr><td colspan="8" class="error">加载新闻数据时发生错误：${safeMessage}</td></tr>`;
+                }
+                setRefreshStatus(`刷新失败：${error.message || '未知错误'}`);
+            } finally {
+                isRefreshing = false;
+                setRefreshButtonState(false);
+                startRefreshCountdown();
+            }
+        }
+
+        function setReportLoading(isLoading, message) {
+            const reportBtn = document.getElementById('report-btn');
+            if (reportBtn) {
+                reportBtn.disabled = isLoading;
+                reportBtn.textContent = isLoading ? '📊 正在生成...' : '📊 生成回测报告';
+            }
+            if (message) {
+                const reportContent = document.getElementById('report-content');
+                if (reportContent) {
+                    reportContent.innerHTML = `<p class="report-placeholder">${message}</p>`;
+                }
+            }
+        }
+
+        function renderBacktestReport(report) {
+            const reportContent = document.getElementById('report-content');
+            if (!reportContent || !report) return;
+
+            const metricsHtml = (report.metrics || []).map(metric => `
+                <div class="report-metric">
+                    <div class="report-metric-label">${metric.label}</div>
+                    <div class="report-metric-value">${metric.value}</div>
+                    <div class="report-metric-note">${metric.note || ''}</div>
+                </div>
+            `).join('');
+
+            const positionHtml = (report.top_positions || []).map(position => `
+                <li>
+                    <div class="report-position-name">${position.name}</div>
+                    <div class="report-position-note">${position.direction} | 置信度 ${position.confidence}%</div>
+                    <div class="report-position-note">${position.suggestion || ''}</div>
+                </li>
+            `).join('');
+
+            const riskHtml = (report.risk_notes || []).map(note => `<li>${note}</li>`).join('');
+            const insightHtml = (report.insights || []).map(insight => `<p class="report-insights">• ${insight}</p>`).join('');
+
+            reportContent.innerHTML = `
+                <div class="report-headline">
+                    <div>
+                        <div class="report-title-text">${report.title || '策略回测报告'}</div>
+                        <div class="report-subtitle">${report.headline || ''}</div>
+                    </div>
+                    <div class="report-meta">
+                        <span>${report.window || 'T+3'}</span>
+                        <span>${formatDisplayTime(report.generated_at) || ''}</span>
+                    </div>
+                </div>
+                <div class="report-metric-grid">
+                    ${metricsHtml || '<p class="report-placeholder">暂无指标</p>'}
+                </div>
+                <div class="report-section-title">重点持仓</div>
+                <ul class="report-list">
+                    ${positionHtml || '<li class="report-placeholder">暂无可用持仓</li>'}
+                </ul>
+                <div class="report-section-title">风险提示</div>
+                <ul class="report-list">
+                    ${riskHtml || '<li class="report-placeholder">风险稳定，无额外提示。</li>'}
+                </ul>
+                ${insightHtml}
+            `;
+        }
+
+        async function generateReport(options = {}) {
+            try {
+                setReportLoading(true, '正在汇总信号与历史窗口...');
+                const payload = {
+                    market: options.market || 'GLOBAL',
+                    window: options.window || 'T+3'
+                };
+                const response = await fetch('/api/signals/backtest', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) {
+                    throw new Error(`API request failed with status ${response.status}`);
+                }
+                const data = await response.json();
+                if (data.status !== 'success') {
+                    throw new Error(data.error || '生成报告失败');
+                }
+                renderBacktestReport(data.report || data);
+                setReportLoading(false);
+            } catch (error) {
+                console.error('Error generating report:', error);
+                setReportLoading(false, `生成报告失败：${error.message || '未知错误'}`);
+            }
+        }
+
+        function updateTimestamp(timestamp) {
+            let timeStr = '';
+            if (timestamp) {
+                const date = new Date(timestamp);
+                const formattedDate = date.getFullYear() + '-' + 
+                                    String(date.getMonth() + 1).padStart(2, '0') + '-' + 
+                                    String(date.getDate()).padStart(2, '0');
+                const formattedTime = String(date.getHours()).padStart(2, '0') + ':' + 
+                                    String(date.getMinutes()).padStart(2, '0');
+                timeStr = `全球市场实时信号（${formattedDate} ${formattedTime} 更新）`;
+            } else {
+                const now = new Date();
+                const formattedDate = now.getFullYear() + '-' + 
+                                    String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+                                    String(now.getDate()).padStart(2, '0');
+                const formattedTime = String(now.getHours()).padStart(2, '0') + ':' + 
+                                    String(now.getMinutes()).padStart(2, '0');
+                timeStr = `全球市场实时信号（${formattedDate} ${formattedTime} 更新）`;
+            }
+            
+            const timestampElement = document.getElementById('timestamp');
+            if (timestampElement) {
+                timestampElement.textContent = timeStr;
+            }
+        }
+
+        function displayNews(newsData) {
+            const tbody = document.getElementById('news-table-body');
+            
+            if (!tbody) return;
+            
+            if (newsData.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" class="no-data">没有找到新闻数据</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = '';
+            newsData.forEach((item, index) => {
+                const row = document.createElement('tr');
+                
+                // Format markets/stocks
+                let marketsHtml = '';
+                if (item.markets && Array.isArray(item.markets)) {
+                    item.markets.forEach(market => {
+                        marketsHtml += `
+                            <div class="market-combo">
+                                <div class="market-combo-title">${market.title}：</div>
+                                <div class="market-combo-stocks">
+                                    ${market.stocks && market.stocks.length > 0 ? market.stocks.map(stock => `<div class="market-combo-stock">${stock}</div>`).join('') : '<div class="market-combo-stock">N/A</div>'}
+                                </div>
+                            </div>
+                        `;
+                    });
+                } else {
+                    marketsHtml = `<div class="market-tag">${item.markets || 'N/A'}</div>`;
+                }
+                
+                // Format impact class
+                let impactClass = 'evaluation-neutral';
+                let impactText = item.deepseek || 'NEUTRAL';
+                if (item.deepseek === 'LONG') {
+                    impactClass = 'evaluation-long';
+                } else if (item.deepseek === 'SHORT') {
+                    impactClass = 'evaluation-short';
+                }
+                
+                row.innerHTML = `
+                    <td><strong>${item.id}</strong></td>
+                    <td>
+                        <div class="title"><strong>${item.title}</strong></div>
+                        <div class="description">${item.description || ''}</div>
+                    </td>
+                    <td>
+                        <span class="source">${item.source}</span>
+                    </td>
+                    <td>
+                        <span class="time-stamp">${item.time}</span>
+                    </td>
+                    <td>
+                        <div class="market-tags">
+                            ${marketsHtml}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="deepseek-evaluation">
+                            <span class="${impactClass}">${impactText}</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="trading-suggestion">
+                            ${item.suggestion}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="confidence-container">
+                            <div class="confidence-bar">
+                                <div class="confidence-level" style="width: ${item.confidence}%"></div>
+                            </div>
+                            <div class="confidence-text">${item.confidence}%</div>
+                        </div>
+                    </td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+        }
+
+        // Auto-refresh functionality
+        setInterval(loadNews, 30000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+crawler:
+  user_agent: "NewsCollector/1.0 (+contact@example.com)"
+  timeout_sec: 25
+  per_domain_min_interval_sec: 2.5
+  rss:
+    WSJ:
+      enabled: true
+      feeds:
+        - "https://www.wsj.com/news/rss"
+    Bloomberg:
+      enabled: true
+      feeds:
+        - "https://feeds.bloomberg.com/markets/news.rss"
+        - "https://feeds.bloomberg.com/politics/news.rss"
+    FinancialTimes:
+      enabled: true
+      feeds:
+        - "https://www.ft.com/rss/home/us"
+  social:
+    TruthSocial:
+      enabled: true
+      handles: ["realDonaldTrump"]
+      page_limit: 10
+    X:
+      enabled: true
+      handles: ["realDonaldTrump"]
+      page_limit: 10
+playwright:
+  browser: "firefox"
+  headless: true
+  wait_after_load_sec: 2.5
+storage:
+  db_url: "sqlite:///data.db"
+healthcheck:
+  rss_sample_limit: 3
+  truth_sample_limit: 3
+  x_sample_limit: 3

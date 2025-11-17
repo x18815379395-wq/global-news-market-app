@@ -1,0 +1,8 @@
+x:
+  article: "article"
+  link_contains: "/status/"
+  time: "time"
+truth:
+  article: "article"
+  link_contains: "/post/"
+  time: "time"
