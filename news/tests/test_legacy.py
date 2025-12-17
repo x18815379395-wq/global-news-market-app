@@ -24,12 +24,12 @@ class LegacyManagerTests(unittest.TestCase):
         )
         pipeline_result = PipelineResult(
             items=[item],
-            generated_at=datetime.utcnow(),
+            generated_at=datetime.now(timezone.utc),
             health=[],
         )
         mock_get_news.return_value = pipeline_result
         mock_health.return_value = [
-            HealthStatus(name="static", healthy=True, items_last_fetch=1, last_success=datetime.utcnow())
+            HealthStatus(name="static", healthy=True, items_last_fetch=1, last_success=datetime.now(timezone.utc))
         ]
 
         manager = NewsSourceManagerV2(markets=[Market.US])

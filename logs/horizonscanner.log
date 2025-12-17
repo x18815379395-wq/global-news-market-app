@@ -1,0 +1,542 @@
+2025-12-17 12:48:52,087 - horizonscanner - WARNING - Failed to import no-api doctor module: No module named 'feedparser'
+2025-12-17 12:48:52,088 - horizonscanner - WARNING - Environment variable DEEPSEEK_API_KEY missing; falling back to mock data
+2025-12-17 12:56:14,302 - horizonscanner - WARNING - Failed to import no-api doctor module: No module named 'feedparser'
+2025-12-17 12:56:14,303 - horizonscanner - WARNING - Environment variable DEEPSEEK_API_KEY missing; falling back to mock data
+2025-12-17 12:56:42,657 - horizonscanner - WARNING - Failed to import no-api doctor module: No module named 'feedparser'
+2025-12-17 12:56:42,662 - horizonscanner - WARNING - Environment variable DEEPSEEK_API_KEY missing; falling back to mock data
+2025-12-17 12:56:42,982 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-17 12:56:42,983 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-17 12:57:47,195 - app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\xcm12\AppData\Local\Programs\Python\Python314\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\xcm12\AppData\Local\Programs\Python\Python314\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\xcm12\AppData\Local\Programs\Python\Python314\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\xcm12\AppData\Local\Programs\Python\Python314\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "G:\code\global-news-market-app\api_routes.py", line 43, in index
+    return app.render_template("index.html")
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Flask' object has no attribute 'render_template'
+2025-12-17 12:57:47,207 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 12:57:47] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-12-17 12:57:47,311 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 12:57:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-12-17 12:57:53,481 - app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\xcm12\AppData\Local\Programs\Python\Python314\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\xcm12\AppData\Local\Programs\Python\Python314\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\xcm12\AppData\Local\Programs\Python\Python314\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\xcm12\AppData\Local\Programs\Python\Python314\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "G:\code\global-news-market-app\api_routes.py", line 43, in index
+    return app.render_template("index.html")
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Flask' object has no attribute 'render_template'
+2025-12-17 12:57:53,484 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 12:57:53] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-12-17 12:58:46,667 - horizonscanner - WARNING - Failed to import no-api doctor module: No module named 'feedparser'
+2025-12-17 12:58:46,669 - horizonscanner - WARNING - Environment variable DEEPSEEK_API_KEY missing; falling back to mock data
+2025-12-17 12:58:46,980 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-17 12:58:46,980 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-17 12:58:51,591 - app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\xcm12\AppData\Local\Programs\Python\Python314\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\xcm12\AppData\Local\Programs\Python\Python314\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\xcm12\AppData\Local\Programs\Python\Python314\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\xcm12\AppData\Local\Programs\Python\Python314\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "G:\code\global-news-market-app\api_routes.py", line 43, in index
+    return app.render_template("index.html")
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Flask' object has no attribute 'render_template'
+2025-12-17 12:58:51,594 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 12:58:51] "[35m[1mGET /?ide_webview_request_time=1765947531243 HTTP/1.1[0m" 500 -
+2025-12-17 12:58:51,854 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 12:58:51] "[33mGET /@vite/client HTTP/1.1[0m" 404 -
+2025-12-17 12:59:03,028 - app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\xcm12\AppData\Local\Programs\Python\Python314\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\xcm12\AppData\Local\Programs\Python\Python314\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\xcm12\AppData\Local\Programs\Python\Python314\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\xcm12\AppData\Local\Programs\Python\Python314\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "G:\code\global-news-market-app\api_routes.py", line 43, in index
+    return app.render_template("index.html")
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Flask' object has no attribute 'render_template'
+2025-12-17 12:59:03,030 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 12:59:03] "[35m[1mGET /?ide_webview_request_time=1765947531243 HTTP/1.1[0m" 500 -
+2025-12-17 12:59:03,369 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 12:59:03] "[33mGET /@vite/client HTTP/1.1[0m" 404 -
+2025-12-17 12:59:17,239 - app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\xcm12\AppData\Local\Programs\Python\Python314\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\xcm12\AppData\Local\Programs\Python\Python314\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\xcm12\AppData\Local\Programs\Python\Python314\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\xcm12\AppData\Local\Programs\Python\Python314\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "G:\code\global-news-market-app\api_routes.py", line 43, in index
+    from flask import render_template
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Flask' object has no attribute 'render_template'
+2025-12-17 12:59:17,243 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 12:59:17] "[35m[1mGET /?ide_webview_request_time=1765947531243 HTTP/1.1[0m" 500 -
+2025-12-17 12:59:17,618 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 12:59:17] "[33mGET /@vite/client HTTP/1.1[0m" 404 -
+2025-12-17 12:59:27,295 - horizonscanner - WARNING - Failed to import no-api doctor module: No module named 'feedparser'
+2025-12-17 12:59:27,299 - horizonscanner - WARNING - Environment variable DEEPSEEK_API_KEY missing; falling back to mock data
+2025-12-17 12:59:27,610 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-17 12:59:27,610 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-17 12:59:32,458 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 12:59:32] "GET /?ide_webview_request_time=1765947531243 HTTP/1.1" 200 -
+2025-12-17 12:59:32,699 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 12:59:32,871 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 12:59:32] "[33mGET /@vite/client HTTP/1.1[0m" 404 -
+2025-12-17 12:59:37,808 - news.http_client - WARNING - HTTP GET failed 401 {"status":"error","code":"apiKeyInvalid","message":"Your API key is invalid or incorrect. Check your key, or go to https://newsapi.org to create a free API key."}
+2025-12-17 12:59:37,917 - crawler.ingesters.rss_base - WARNING - feedparser is not installed; RSS entries will be skipped for source GoogleNews-A-Share
+2025-12-17 12:59:38,002 - crawler.ingesters.rss_base - WARNING - feedparser is not installed; RSS entries will be skipped for source GoogleNews-US
+2025-12-17 12:59:38,054 - news.http_client - WARNING - HTTP GET failed 401 {"status":"error","code":"apiKeyInvalid","message":"Your API key is invalid or incorrect. Check your key, or go to https://newsapi.org to create a free API key."}
+2025-12-17 12:59:38,237 - crawler.ingesters.rss_base - WARNING - feedparser is not installed; RSS entries will be skipped for source GoogleNews-Global
+2025-12-17 12:59:38,344 - crawler.ingesters.rss_base - WARNING - feedparser is not installed; RSS entries will be skipped for source GoogleNews-A-Share
+2025-12-17 12:59:38,472 - crawler.ingesters.rss_base - WARNING - feedparser is not installed; RSS entries will be skipped for source GoogleNews-US
+2025-12-17 12:59:38,760 - crawler.ingesters.rss_base - WARNING - feedparser is not installed; RSS entries will be skipped for source GoogleNews-Global
+2025-12-17 12:59:39,056 - news.http_client - WARNING - HTTP GET failed 401 {"status":"error","code":"apiKeyInvalid","message":"Your API key is invalid or incorrect. Check your key, or go to https://newsapi.org to create a free API key."}
+2025-12-17 12:59:39,067 - horizonscanner - INFO - Successfully generated horizon scanner data with 10 signals
+2025-12-17 12:59:39,068 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 12:59:39] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 12:59:45,621 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 12:59:45,621 - horizonscanner - INFO - Successfully generated horizon scanner data with 10 signals
+2025-12-17 12:59:45,622 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 12:59:45] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 12:59:49,182 - horizonscanner - INFO - Received backtest request for market: GLOBAL, window: T+3
+2025-12-17 12:59:49,183 - horizonscanner - INFO - Successfully generated backtest report for GLOBAL with window T+3
+2025-12-17 12:59:49,184 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 12:59:49] "POST /api/signals/backtest HTTP/1.1" 200 -
+2025-12-17 13:00:02,481 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 13:00:02,482 - horizonscanner - INFO - Successfully generated horizon scanner data with 10 signals
+2025-12-17 13:00:02,482 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 13:00:02] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 13:06:28,610 - httpx - INFO - HTTP Request: GET https://www.wsj.com/news/rss "HTTP/1.1 404 Not Found"
+2025-12-17 13:06:49,821 - httpx - INFO - HTTP Request: GET https://www.wsj.com/news/rss "HTTP/1.1 404 Not Found"
+2025-12-17 13:07:32,443 - horizonscanner - WARNING - Failed to import no-api doctor module: No module named 'httpx'
+2025-12-17 13:07:33,735 - news.config_loader - ERROR - PyYAML not available; attempting JSON parsing fallback.
+2025-12-17 13:08:04,363 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-17 13:08:04,367 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-17 13:08:53,090 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-17 13:08:53,564 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-17 13:08:57,655 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 13:08:57] "GET / HTTP/1.1" 200 -
+2025-12-17 13:08:57,707 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 13:17:22,600 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-17 13:17:22,605 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-17 13:17:36,505 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 13:17:36,506 - horizonscanner - INFO - Fetching news data for markets: ['global', 'us', 'a_share']
+2025-12-17 13:17:46,074 - horizonscanner - INFO - Fetched 20 news articles from API
+2025-12-17 13:17:46,075 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 13:17:46,077 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 13:17:46] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 13:57:47,116 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 13:57:47] "GET /?ide_webview_request_time=1765951067074 HTTP/1.1" 200 -
+2025-12-17 13:57:47,313 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 13:57:47,314 - horizonscanner - INFO - Fetching news data for markets: ['global', 'us', 'a_share']
+2025-12-17 13:57:47,410 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 13:57:47] "[33mGET /@vite/client HTTP/1.1[0m" 404 -
+2025-12-17 13:58:06,256 - horizonscanner - INFO - Fetched 20 news articles from API
+2025-12-17 13:58:06,256 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 13:58:06,257 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 13:58:06] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 13:58:17,326 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 13:58:17,327 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 13:58:17,328 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 13:58:17,328 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 13:58:17] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 13:58:33,970 - horizonscanner - INFO - Received backtest request for market: GLOBAL, window: T+3
+2025-12-17 13:58:33,970 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 13:58:33,971 - horizonscanner - INFO - Successfully generated backtest report for GLOBAL with window T+3
+2025-12-17 13:58:33,971 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 13:58:33] "POST /api/signals/backtest HTTP/1.1" 200 -
+2025-12-17 13:58:47,318 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 13:58:47,318 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 13:58:47,319 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 13:58:47,320 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 13:58:47] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 13:59:17,312 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 13:59:17,312 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 13:59:17,313 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 13:59:17,313 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 13:59:17] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 13:59:25,103 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 13:59:25,103 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 13:59:25,104 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 13:59:25,104 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 13:59:25] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 13:59:32,139 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 13:59:32] "GET /?ide_webview_request_time=1765947531243 HTTP/1.1" 200 -
+2025-12-17 13:59:32,406 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 13:59:32,406 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 13:59:32,407 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 13:59:32,408 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 13:59:32] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 13:59:32,483 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 13:59:32] "[33mGET /@vite/client HTTP/1.1[0m" 404 -
+2025-12-17 14:07:48,569 - horizonscanner - INFO - OK: requests (for HTTP requests) is installed
+2025-12-17 14:07:48,618 - horizonscanner - INFO - OK: feedparser (for RSS parsing) is installed
+2025-12-17 14:07:49,462 - horizonscanner - INFO - OK: news (for News pipeline) is installed
+2025-12-17 14:07:49,518 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-17 14:07:49,518 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-17 14:08:02,403 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 14:08:02,404 - horizonscanner - INFO - Fetching news data for markets: ['global', 'us', 'a_share'] (attempt 1/3)
+2025-12-17 14:08:11,889 - horizonscanner - INFO - Fetched 20 news articles from API
+2025-12-17 14:08:11,890 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 14:08:11,891 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:08:11] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 14:08:24,203 - horizonscanner - INFO - Received request for system health status
+2025-12-17 14:08:32,355 - httpx - INFO - HTTP Request: GET https://www.wsj.com/news/rss "HTTP/1.1 404 Not Found"
+2025-12-17 14:08:42,346 - httpx - INFO - HTTP Request: GET https://feeds.bloomberg.com/markets/news.rss "HTTP/1.1 200 OK"
+2025-12-17 14:09:00,258 - httpx - INFO - HTTP Request: GET https://feeds.bloomberg.com/politics/news.rss "HTTP/1.1 200 OK"
+2025-12-17 14:09:08,921 - httpx - INFO - HTTP Request: GET https://www.ft.com/rss/home/us "HTTP/1.1 404 Not Found"
+2025-12-17 14:09:12,935 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:09:12] "GET /api/system-health HTTP/1.1" 200 -
+2025-12-17 14:09:24,286 - horizonscanner - INFO - Received backtest request for market: GLOBAL, window: T+3
+2025-12-17 14:09:24,286 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 14:09:24,287 - horizonscanner - INFO - Successfully generated backtest report for GLOBAL with window T+3
+2025-12-17 14:09:24,288 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:09:24] "POST /api/signals/backtest HTTP/1.1" 200 -
+2025-12-17 14:10:47,830 - horizonscanner - INFO - OK: requests (for HTTP requests) is installed
+2025-12-17 14:10:48,361 - horizonscanner - INFO - OK: feedparser (for RSS parsing) is installed
+2025-12-17 14:10:49,169 - horizonscanner - INFO - OK: news (for News pipeline) is installed
+2025-12-17 14:10:49,230 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-17 14:10:49,231 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-17 14:10:53,055 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:10:53] "GET / HTTP/1.1" 200 -
+2025-12-17 14:10:53,122 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 14:10:53,127 - horizonscanner - INFO - Fetching news data for markets: ['global', 'us', 'a_share'] (attempt 1/3)
+2025-12-17 14:10:53,130 - horizonscanner - INFO - Fetched 20 news articles from API
+2025-12-17 14:10:53,132 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 14:10:53,140 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:10:53] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 14:10:57,209 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 14:10:57,209 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 14:10:57,210 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 14:10:57,210 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:10:57] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 14:11:01,089 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 14:11:01,090 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 14:11:01,090 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 14:11:01,090 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:11:01] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 14:11:09,105 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 14:11:09,105 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 14:11:09,106 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 14:11:09,106 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:11:09] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 14:11:21,331 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 14:11:21,331 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 14:11:21,332 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 14:11:21,332 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:11:21] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 14:11:23,101 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 14:11:23,102 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 14:11:23,102 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 14:11:23,103 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:11:23] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 14:11:30,900 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:11:30] "GET / HTTP/1.1" 200 -
+2025-12-17 14:11:30,937 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 14:11:30,937 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 14:11:30,951 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 14:11:30,953 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:11:30] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 14:11:31,548 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:11:31] "GET / HTTP/1.1" 200 -
+2025-12-17 14:11:31,579 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 14:11:31,580 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 14:11:31,581 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 14:11:31,582 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:11:31] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 14:11:32,116 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:11:32] "GET / HTTP/1.1" 200 -
+2025-12-17 14:11:32,152 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 14:11:32,153 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 14:11:32,154 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 14:11:32,155 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:11:32] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 14:12:02,775 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 14:12:02,775 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 14:12:02,776 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 14:12:02,777 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:12:02] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 14:12:32,772 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 14:12:32,772 - horizonscanner - INFO - Fetching news data for markets: ['global', 'us', 'a_share'] (attempt 1/3)
+2025-12-17 14:12:32,773 - horizonscanner - INFO - Fetched 20 news articles from API
+2025-12-17 14:12:32,773 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 14:12:32,774 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:12:32] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 14:13:02,779 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 14:13:02,779 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 14:13:02,779 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 14:13:02,780 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:13:02] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 14:13:32,772 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 14:13:32,772 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 14:13:32,773 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 14:13:32,774 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:13:32] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 14:13:59,745 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:13:59] "GET / HTTP/1.1" 200 -
+2025-12-17 14:13:59,777 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 14:13:59,778 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 14:13:59,779 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 14:13:59,780 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:13:59] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 14:26:20,827 - horizonscanner - INFO - OK: requests (for HTTP requests) is installed
+2025-12-17 14:26:20,870 - horizonscanner - INFO - OK: feedparser (for RSS parsing) is installed
+2025-12-17 14:26:21,304 - news.sentiment - WARNING - VADER sentiment analyzer not available. Sentiment analysis will be disabled.
+2025-12-17 14:26:21,329 - horizonscanner - INFO - OK: news (for News pipeline) is installed
+2025-12-17 14:26:21,391 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-17 14:26:21,391 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-17 14:26:26,807 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:26:26] "GET / HTTP/1.1" 200 -
+2025-12-17 14:26:26,970 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 14:26:26,971 - horizonscanner - INFO - Fetching news data for markets: ['global', 'us', 'a_share'] (attempt 1/3)
+2025-12-17 14:26:26,972 - news.pipeline - INFO - Using 6 workers for 6 adapters
+2025-12-17 14:26:36,415 - horizonscanner - INFO - Fetched 20 news articles from API
+2025-12-17 14:26:36,416 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 14:26:36,417 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:26:36] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 14:26:57,770 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 14:26:57,771 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 14:26:57,771 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 14:26:57,772 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:26:57] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 14:27:04,843 - horizonscanner - INFO - Received backtest request for market: GLOBAL, window: T+3
+2025-12-17 14:27:04,844 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 14:27:04,844 - horizonscanner - INFO - Successfully generated backtest report for GLOBAL with window T+3
+2025-12-17 14:27:04,845 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 14:27:04] "POST /api/signals/backtest HTTP/1.1" 200 -
+2025-12-17 15:03:12,805 - horizonscanner - INFO - OK: requests (for HTTP requests) is installed
+2025-12-17 15:03:12,852 - horizonscanner - INFO - OK: feedparser (for RSS parsing) is installed
+2025-12-17 15:03:13,304 - news.sentiment - WARNING - VADER sentiment analyzer not available. Sentiment analysis will be disabled.
+2025-12-17 15:03:13,318 - horizonscanner - INFO - OK: news (for News pipeline) is installed
+2025-12-17 15:03:32,605 - horizonscanner - INFO - OK: requests (for HTTP requests) is installed
+2025-12-17 15:03:32,652 - horizonscanner - INFO - OK: feedparser (for RSS parsing) is installed
+2025-12-17 15:03:33,051 - news.sentiment - WARNING - VADER sentiment analyzer not available. Sentiment analysis will be disabled.
+2025-12-17 15:03:33,066 - horizonscanner - INFO - OK: news (for News pipeline) is installed
+2025-12-17 15:03:33,128 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-17 15:03:33,129 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-17 15:03:36,577 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:03:36] "GET / HTTP/1.1" 200 -
+2025-12-17 15:03:36,644 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:03:36,645 - horizonscanner - INFO - Fetching news data for markets: ['global', 'us', 'a_share'] (attempt 1/3)
+2025-12-17 15:03:36,655 - news.pipeline - INFO - Using 6 workers for 6 adapters
+2025-12-17 15:03:44,398 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:03:44] "GET /?ide_webview_request_time=1765955024367 HTTP/1.1" 200 -
+2025-12-17 15:03:44,735 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:03:44,736 - horizonscanner - INFO - Fetching news data for markets: ['global', 'us', 'a_share'] (attempt 1/3)
+2025-12-17 15:03:44,738 - news.pipeline - INFO - Using 6 workers for 6 adapters
+2025-12-17 15:03:44,757 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:03:44] "[33mGET /@vite/client HTTP/1.1[0m" 404 -
+2025-12-17 15:03:54,708 - horizonscanner - INFO - Fetched 20 news articles from API
+2025-12-17 15:03:54,709 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:03:54,709 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:03:54] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:03:55,765 - horizonscanner - INFO - Fetched 20 news articles from API
+2025-12-17 15:03:55,766 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:03:55,766 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:03:55] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:04:04,249 - horizonscanner - INFO - Received backtest request for market: GLOBAL, window: T+3
+2025-12-17 15:04:04,250 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:04:04,250 - horizonscanner - INFO - Successfully generated backtest report for GLOBAL with window T+3
+2025-12-17 15:04:04,251 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:04:04] "POST /api/signals/backtest HTTP/1.1" 200 -
+2025-12-17 15:04:06,489 - horizonscanner - INFO - Received backtest request for market: GLOBAL, window: T+3
+2025-12-17 15:04:06,490 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:04:06,490 - horizonscanner - INFO - Successfully generated backtest report for GLOBAL with window T+3
+2025-12-17 15:04:06,491 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:04:06] "POST /api/signals/backtest HTTP/1.1" 200 -
+2025-12-17 15:04:06,618 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:04:06,619 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:04:06,620 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:04:06,621 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:04:06] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:04:07,242 - horizonscanner - INFO - Received backtest request for market: GLOBAL, window: T+3
+2025-12-17 15:04:07,242 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:04:07,243 - horizonscanner - INFO - Successfully generated backtest report for GLOBAL with window T+3
+2025-12-17 15:04:07,243 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:04:07] "POST /api/signals/backtest HTTP/1.1" 200 -
+2025-12-17 15:04:14,617 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:04:14,618 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:04:14,620 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:04:14,621 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:04:14] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:04:25,010 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:04:25,011 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:04:25,012 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:04:25,012 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:04:25] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:04:25,857 - horizonscanner - INFO - Received backtest request for market: GLOBAL, window: T+3
+2025-12-17 15:04:25,857 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:04:25,858 - horizonscanner - INFO - Successfully generated backtest report for GLOBAL with window T+3
+2025-12-17 15:04:25,858 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:04:25] "POST /api/signals/backtest HTTP/1.1" 200 -
+2025-12-17 15:11:07,156 - horizonscanner - INFO - OK: requests (for HTTP requests) is installed
+2025-12-17 15:11:07,242 - horizonscanner - INFO - OK: feedparser (for RSS parsing) is installed
+2025-12-17 15:11:07,669 - news.sentiment - WARNING - VADER sentiment analyzer not available. Sentiment analysis will be disabled.
+2025-12-17 15:11:07,692 - horizonscanner - INFO - OK: news (for News pipeline) is installed
+2025-12-17 15:11:07,795 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-17 15:11:07,795 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-17 15:11:56,357 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:11:56] "GET / HTTP/1.1" 200 -
+2025-12-17 15:11:56,437 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:11:56,457 - horizonscanner - INFO - Fetching news data for markets: ['global', 'us', 'a_share'] (attempt 1/3)
+2025-12-17 15:11:56,459 - news.pipeline - INFO - Using 6 workers for 6 adapters
+2025-12-17 15:12:11,709 - horizonscanner - INFO - Fetched 20 news articles from API
+2025-12-17 15:12:11,710 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:12:11,711 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:12:11] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:12:26,419 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:12:26,419 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:12:26,423 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:12:26,425 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:12:26] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:12:56,787 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:12:56,787 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:12:56,788 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:12:56,790 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:12:56] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:24:45,287 - horizonscanner - INFO - OK: requests (for HTTP requests) is installed
+2025-12-17 15:24:45,342 - horizonscanner - INFO - OK: feedparser (for RSS parsing) is installed
+2025-12-17 15:24:46,237 - news.sentiment - WARNING - VADER sentiment analyzer not available. Sentiment analysis will be disabled.
+2025-12-17 15:24:46,255 - horizonscanner - INFO - OK: news (for News pipeline) is installed
+2025-12-17 15:24:46,324 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-17 15:24:46,325 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-17 15:24:49,640 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:24:49] "GET /?ide_webview_request_time=1765956289293 HTTP/1.1" 200 -
+2025-12-17 15:24:49,871 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:24:49,871 - horizonscanner - INFO - Fetching news data for markets: ['global', 'us', 'a_share'] (attempt 1/3)
+2025-12-17 15:24:49,876 - news.pipeline - INFO - Using 6 workers for 6 adapters
+2025-12-17 15:24:50,050 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:24:50] "[33mGET /@vite/client HTTP/1.1[0m" 404 -
+2025-12-17 15:24:57,359 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:24:57] "GET / HTTP/1.1" 200 -
+2025-12-17 15:24:57,426 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:24:57,428 - horizonscanner - INFO - Fetching news data for markets: ['global', 'us', 'a_share'] (attempt 1/3)
+2025-12-17 15:24:57,430 - news.pipeline - INFO - Using 6 workers for 6 adapters
+2025-12-17 15:25:01,724 - horizonscanner - INFO - Fetched 20 news articles from API
+2025-12-17 15:25:01,725 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:25:01,726 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:25:01] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:25:05,719 - horizonscanner - INFO - Fetched 20 news articles from API
+2025-12-17 15:25:05,720 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:25:05,721 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:25:05] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:25:15,448 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:25:15] "GET /?ide_webview_request_time=1765956315433 HTTP/1.1" 200 -
+2025-12-17 15:25:15,659 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:25:15,659 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:25:15,660 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:25:15,662 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:25:15] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:25:15,935 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:25:15] "[33mGET /@vite/client HTTP/1.1[0m" 404 -
+2025-12-17 15:25:23,755 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:25:23,755 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:25:23,755 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:25:23,756 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:25:23] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:25:27,418 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:25:27,419 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:25:27,419 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:25:27,420 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:25:27] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:25:45,786 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:25:45,787 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:25:45,787 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:25:45,788 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:25:45] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:25:52,496 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:25:52,497 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:25:52,497 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:25:52,498 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:25:52] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:25:57,422 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:25:57,422 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:25:57,423 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:25:57,423 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:25:57] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:26:15,778 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:26:15,778 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:26:15,779 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:26:15,779 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:26:15] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:26:27,782 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:26:27,782 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:26:27,783 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:26:27,784 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:26:27] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:26:45,788 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:26:45,788 - horizonscanner - INFO - Fetching news data for markets: ['global', 'us', 'a_share'] (attempt 1/3)
+2025-12-17 15:26:45,789 - horizonscanner - INFO - Fetched 20 news articles from API
+2025-12-17 15:26:45,790 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:26:45,791 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:26:45] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:26:57,785 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:26:57,786 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:26:57,786 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:26:57,787 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:26:57] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:27:15,779 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:27:15,780 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:27:15,780 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:27:15,781 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:27:15] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:27:27,418 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:27:27,419 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:27:27,420 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:27:27,420 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:27:27] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:27:45,780 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:27:45,780 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:27:45,781 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:27:45,781 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:27:45] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:28:15,789 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:28:15,789 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:28:15,789 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:28:15,790 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:28:15] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:28:45,787 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:28:45,788 - horizonscanner - INFO - Fetching news data for markets: ['global', 'us', 'a_share'] (attempt 1/3)
+2025-12-17 15:28:45,788 - horizonscanner - INFO - Fetched 20 news articles from API
+2025-12-17 15:28:45,789 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:28:45,789 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:28:45] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:32:54,761 - horizonscanner - INFO - OK: requests (for HTTP requests) is installed
+2025-12-17 15:32:54,817 - horizonscanner - INFO - OK: feedparser (for RSS parsing) is installed
+2025-12-17 15:32:55,804 - news.sentiment - WARNING - VADER sentiment analyzer not available. Sentiment analysis will be disabled.
+2025-12-17 15:32:55,834 - horizonscanner - INFO - OK: news (for News pipeline) is installed
+2025-12-17 15:33:27,678 - horizonscanner - INFO - OK: requests (for HTTP requests) is installed
+2025-12-17 15:33:27,758 - horizonscanner - INFO - OK: feedparser (for RSS parsing) is installed
+2025-12-17 15:33:28,818 - news.sentiment - WARNING - VADER sentiment analyzer not available. Sentiment analysis will be disabled.
+2025-12-17 15:33:28,844 - horizonscanner - INFO - OK: news (for News pipeline) is installed
+2025-12-17 15:33:28,913 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-17 15:33:28,914 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-17 15:33:45,668 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:33:45,668 - horizonscanner - INFO - Fetching news data for markets: ['global', 'us', 'a_share'] (attempt 1/3)
+2025-12-17 15:33:45,669 - news.pipeline - INFO - Using 6 workers for 6 adapters
+2025-12-17 15:33:47,007 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:33:47] "GET /?ide_webview_request_time=1765956826983 HTTP/1.1" 200 -
+2025-12-17 15:33:47,186 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:33:47,207 - horizonscanner - INFO - Fetching news data for markets: ['global', 'us', 'a_share'] (attempt 1/3)
+2025-12-17 15:33:47,210 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:33:47] "[33mGET /@vite/client HTTP/1.1[0m" 404 -
+2025-12-17 15:33:47,214 - news.pipeline - INFO - Using 6 workers for 6 adapters
+2025-12-17 15:33:57,679 - horizonscanner - INFO - Fetched 20 news articles from API
+2025-12-17 15:33:57,680 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:33:57,681 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:33:57] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:34:00,241 - horizonscanner - INFO - Fetched 20 news articles from API
+2025-12-17 15:34:00,242 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:34:00,243 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:34:00] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:34:17,128 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:34:17,129 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:34:17,130 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:34:17,131 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:34:17] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:34:47,128 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:34:47,128 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:34:47,129 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:34:47,130 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:34:47] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:35:16,525 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:35:16,525 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:35:16,525 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:35:16,526 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:35:16] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:35:17,117 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:35:17,117 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:35:17,117 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:35:17,118 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:35:17] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:35:20,482 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:35:20] "GET /?ide_webview_request_time=1765956289293 HTTP/1.1" 200 -
+2025-12-17 15:35:20,746 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:35:20,747 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:35:20,748 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:35:20,749 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:35:20] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:35:20,825 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:35:20] "[33mGET /@vite/client HTTP/1.1[0m" 404 -
+2025-12-17 15:35:24,390 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:35:24] "GET /?ide_webview_request_time=1765956826983 HTTP/1.1" 200 -
+2025-12-17 15:35:24,556 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:35:24,557 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:35:24,558 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:35:24,559 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:35:24] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:35:24,682 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:35:24] "[33mGET /@vite/client HTTP/1.1[0m" 404 -
+2025-12-17 15:35:26,092 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:35:26] "GET / HTTP/1.1" 200 -
+2025-12-17 15:35:26,238 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:35:26,238 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:35:26,239 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:35:26,240 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:35:26] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:35:42,205 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:35:42,205 - horizonscanner - INFO - Fetching news data for markets: ['global', 'us', 'a_share'] (attempt 1/3)
+2025-12-17 15:35:42,205 - horizonscanner - INFO - Fetched 20 news articles from API
+2025-12-17 15:35:42,206 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:35:42,206 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:35:42] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:35:54,563 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:35:54,563 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:35:54,564 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:35:54,566 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:35:54] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:35:56,098 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:35:56] "GET /?ide_webview_request_time=1765956289293 HTTP/1.1" 200 -
+2025-12-17 15:35:56,547 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 15:35:56,548 - horizonscanner - INFO - Returning cached news data: 20 articles
+2025-12-17 15:35:56,548 - horizonscanner - INFO - Successfully generated horizon scanner data with 12 signals
+2025-12-17 15:35:56,549 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:35:56] "GET /api/horizon-scanner-data HTTP/1.1" 200 -
+2025-12-17 15:35:56,671 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 15:35:56] "[33mGET /@vite/client HTTP/1.1[0m" 404 -
+2025-12-17 16:07:13,297 - horizonscanner - INFO - OK: requests (for HTTP requests) is installed
+2025-12-17 16:07:13,554 - horizonscanner - INFO - OK: feedparser (for RSS parsing) is installed
+2025-12-17 16:07:15,489 - news.sentiment - WARNING - VADER sentiment analyzer not available. Sentiment analysis will be disabled.
+2025-12-17 16:07:15,511 - news.config_loader - WARNING - news_sources.yaml not found at HorizonScanner\news_sources.yaml
+2025-12-17 16:07:15,511 - horizonscanner - INFO - OK: news (for News pipeline) is installed
+2025-12-17 16:07:15,758 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-17 16:07:15,759 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-17 16:07:18,595 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 16:07:18] "GET /?ide_webview_request_time=1765958838239 HTTP/1.1" 200 -
+2025-12-17 16:07:18,851 - horizonscanner - INFO - Received request for horizon scanner data
+2025-12-17 16:07:18,851 - horizonscanner - INFO - Fetching news data for markets: ['global', 'us', 'a_share'] (attempt 1/3)
+2025-12-17 16:07:18,852 - news.pipeline - INFO - Using 2 workers for 1 adapters
+2025-12-17 16:07:18,976 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 16:07:18] "[33mGET /@vite/client HTTP/1.1[0m" 404 -
+2025-12-17 16:07:27,450 - horizonscanner - INFO - Fetched 5 news articles from API
+2025-12-17 16:07:27,450 - horizonscanner - INFO - Successfully generated horizon scanner data with 5 signals
+2025-12-17 16:07:27,451 - werkzeug - INFO - 127.0.0.1 - - [17/Dec/2025 16:07:27] "GET /api/horizon-scanner-data HTTP/1.1" 200 -

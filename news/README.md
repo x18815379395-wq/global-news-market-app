@@ -5,18 +5,20 @@ This package contains the next-generation multi-source ingestion stack. Highligh
 - **Adapters** in `news/adapters/` normalize News-as-a-service providers, RSS feeds, and social headless collectors behind a shared protocol.
 - **Config-driven**: `news/config_loader.py` reads `HorizonScanner/news_sources.yaml` and expands `${ENV}` placeholders so new feeds can be added without touching code.
 - **Pipeline**: `news/pipeline.py` orchestrates adapters concurrently, dedupes results, applies market-aware semantic scoring, and persists cache/health telemetry.
-- **Caching**: `news/cache.PipelineCache` stores recent payloads in-memory plus `news/.pipeline_cache.json` for warm starts.
+- **Caching**: `news/cache.PipelineCache` stores recent payloads in-memory plus `news/.pipeline_cache.json` for warm starts (multiple market/limit keys, TTL eviction).
 
 ### Usage
 
 ```python
 from news import get_news, get_health_snapshot, Market
+from news import SETTINGS, get_pipeline_status
 
 result = get_news([Market.US, Market.A_SHARE], limit=25)
 for item in result.items:
     print(item.title, item.relevance_score)
 
 health = get_health_snapshot()
+status = get_pipeline_status()  # includes cache snapshot + config summary
 ```
 
 ### Integration notes
@@ -26,6 +28,12 @@ health = get_health_snapshot()
 3. For legacy integrations that still expect `NewsSourceManager`, import `NewsSourceManagerV2` from `news.legacy` (or keep importing `news_sources.NewsSourceManager`, which now shims to the new class) until all call-sites use `news.get_news`.
 4. To add a new source, append it to `HorizonScanner/news_sources.yaml` with an `adapter` section; no code change required for simple RSS additions. See `news/samples/news_sources.example.yaml` for a minimal template you can copy.
 5. Consumers such as `ears_of_fortune_v2` respect the optional `NEWS_DEFAULT_MARKETS` env var (comma-separated, e.g. `global,us,a_share`). When unset, it falls back to `["global", "us", "a_share"]`.
+6. Additional env overrides:
+   - `NEWS_PIPELINE_LIMIT` (default 20)
+   - `NEWS_CACHE_TTL` (seconds, default 300)
+   - `NEWS_CACHE_MAX_ENTRIES` (default 4)
+   - `NEWS_CACHE_PATH` (path to cache file)
+   - `NEWS_SOURCES_PATH` (override `HorizonScanner/news_sources.yaml`)
 
 ### Tests
 

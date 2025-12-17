@@ -18,7 +18,8 @@ except ImportError:  # pragma: no cover - dependency missing in some envs
 
 
 def load_sources_config() -> Dict[str, Any]:
-    config_path = Path("HorizonScanner") / "news_sources.yaml"
+    override_path = os.getenv("NEWS_SOURCES_PATH")
+    config_path = Path(override_path) if override_path else Path("HorizonScanner") / "news_sources.yaml"
     if not config_path.exists():
         logger.warning("news_sources.yaml not found at %s", config_path)
         return {}

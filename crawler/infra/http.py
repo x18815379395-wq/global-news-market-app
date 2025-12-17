@@ -45,10 +45,16 @@ class HttpFetcher:
         self._cache: Dict[str, CachedHeaders] = {}
         self._lock = threading.RLock()
 
-    def fetch(self, url: str) -> Optional[requests.Response]:
+    def fetch(self, url: str, last_modified_time: Optional[datetime] = None) -> Optional[requests.Response]:
         """
         Fetch a URL politely. Respects cached ETag/Last-Modified headers.
         Returns None if 304 or request ultimately fails.
+        
+        Args:
+            url: URL to fetch.
+            last_modified_time: Optional. If provided, only fetch content modified after this time.
+                This is used for incremental fetching.
+                Note: Not all servers support this parameter.
         """
         for attempt in range(self.max_retries):
             self._respect_delay(url)
@@ -59,6 +65,15 @@ class HttpFetcher:
                     headers["If-None-Match"] = cached.etag
                 if cached.last_modified:
                     headers["If-Modified-Since"] = cached.last_modified
+            
+            # Add custom last-modified header if provided
+            if last_modified_time:
+                headers["X-Last-Fetched"] = last_modified_time.isoformat()
+                # For servers that support it, use If-Modified-Since with our last fetch time
+                # but only if we don't already have a more recent Last-Modified header from the server
+                if not cached or not cached.last_modified:
+                    headers["If-Modified-Since"] = last_modified_time.strftime('%a, %d %b %Y %H:%M:%S GMT')
+            
             try:
                 response = self.session.get(url, headers=headers, timeout=self.timeout)
                 if response.status_code == 304:

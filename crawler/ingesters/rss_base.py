@@ -8,7 +8,10 @@ from datetime import datetime, timezone
 from typing import Iterable, List, Optional
 from urllib.parse import urlsplit, urlunsplit
 
-import feedparser
+try:
+    import feedparser
+except ImportError:  # pragma: no cover - optional dependency for environments without RSS needs
+    feedparser = None
 
 from crawler.schemas.models import ArticleItem
 
@@ -25,6 +28,9 @@ def normalize_url(url: str) -> str:
 
 
 def parse_feed_entries(feed_content: bytes, source: str, topics: Optional[List[str]] = None) -> List[ArticleItem]:
+    if not feedparser:
+        logger.warning("feedparser is not installed; RSS entries will be skipped for source %s", source)
+        return []
     feed = feedparser.parse(feed_content)
     items: List[ArticleItem] = []
     for entry in getattr(feed, "entries", []):
@@ -53,4 +59,3 @@ def _parse_datetime(struct_time) -> Optional[datetime]:
     if not struct_time:
         return None
     return datetime(*struct_time[:6], tzinfo=timezone.utc)
-

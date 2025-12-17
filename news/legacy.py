@@ -4,29 +4,17 @@ Backwards-compatible helpers so existing call sites can migrate gradually.
 from __future__ import annotations
 
 import logging
-import os
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
-from news import get_health_snapshot, get_news
+from news import SETTINGS, get_health_snapshot, get_news
 from news.models import ContentType, Market, NewsItem
 
 logger = logging.getLogger(__name__)
 
 
 def _default_markets() -> List[Market]:
-    env_value = os.getenv("NEWS_DEFAULT_MARKETS")
-    if env_value:
-        mapped = []
-        for token in env_value.split(","):
-            token = token.strip().lower()
-            try:
-                mapped.append(Market(token))
-            except ValueError:
-                logger.warning("Unknown market token '%s' in NEWS_DEFAULT_MARKETS; skipping.", token)
-        if mapped:
-            return mapped
-    return [Market.GLOBAL, Market.US, Market.A_SHARE]
+    return SETTINGS.default_markets
 
 
 class NewsSourceManagerV2:
@@ -60,7 +48,7 @@ class NewsSourceManagerV2:
             }
             for entry in health
         }
-        payload["last_fetch"] = datetime.utcnow().isoformat()
+        payload["last_fetch"] = datetime.now(timezone.utc).isoformat()
         return payload
 
 
@@ -77,5 +65,5 @@ def _news_item_to_dict(item: NewsItem) -> Dict[str, Any]:
         "semantic_similarity": item.semantic_similarity,
         "topics": item.topics,
         "metadata": item.metadata,
-        "fetchedAt": datetime.utcnow().isoformat(),
+        "fetchedAt": datetime.now(timezone.utc).isoformat(),
     }

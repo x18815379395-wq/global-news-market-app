@@ -44,6 +44,9 @@ class NewsItem:
     topics: List[str] = field(default_factory=list)
     relevance_score: Optional[float] = None
     semantic_similarity: Optional[float] = None
+    sentiment_score: Optional[float] = None
+    sentiment_label: Optional[str] = None
+    sentiment_dimensions: Dict[str, float] = field(default_factory=dict)
 
 
 @dataclass

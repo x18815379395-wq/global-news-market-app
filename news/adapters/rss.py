@@ -48,13 +48,31 @@ class RssAdapter:
         collected: List[NewsItem] = []
         start = time.time()
         last_error: Optional[str] = None
+        
+        # Get the last fetch time for this source (for incremental fetching)
+        # For simplicity, we'll use the current time minus some buffer as initial value
+        # In a production system, this would be stored persistently
+        initial_last_fetch_time = now - timedelta(hours=1)
+        
         for feed in self.feeds:
             try:
-                response = self.fetcher.fetch(feed)
+                # Use incremental fetching by providing the last fetch time
+                response = self.fetcher.fetch(feed, last_modified_time=initial_last_fetch_time)
                 if not response:
                     continue
+                    
                 articles: List[ArticleItem] = parse_feed_entries(response.content, self.source_name, self.topics)
-                for article in articles[: self.limit_per_feed]:
+                
+                # Filter articles to only include those published after our last fetch time
+                # This ensures we only get new articles
+                new_articles = []
+                for article in articles:
+                    if article.published_at and article.published_at > initial_last_fetch_time:
+                        new_articles.append(article)
+                
+                logger.debug(f"Found {len(new_articles)} new articles in {self.source_name} feed {feed}")
+                
+                for article in new_articles[: self.limit_per_feed]:
                     collected.append(
                         NewsItem(
                             title=article.title,
@@ -65,6 +83,9 @@ class RssAdapter:
                             topics=article.topics,
                             content_type=ContentType.FINANCIAL_NEWS,
                             published_at=article.published_at,
+                            metadata={
+                                "feed_url": feed,
+                            },
                         )
                     )
             except Exception as exc:  # pragma: no cover - network

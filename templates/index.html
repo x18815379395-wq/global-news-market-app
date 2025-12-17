@@ -15,8 +15,51 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background-color: #0f172a;
             color: #f1f5f9;
-            padding: 2rem;
+            padding: 1rem;
             line-height: 1.6;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+            
+            .container {
+                max-width: 100%;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .signal-table-container {
+                overflow-x: auto;
+                border-radius: 8px;
+                margin-bottom: 1rem;
+            }
+            
+            .signal-table {
+                min-width: 800px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .header p {
+                font-size: 0.9rem;
+            }
+            
+            .timestamp {
+                font-size: 0.9rem;
+            }
+            
+            .info-box {
+                padding: 1rem;
+            }
         }
 
         .container {
@@ -69,6 +112,31 @@
             border: 1px solid #475569;
             font-size: 1rem;
         }
+        
+        .sortable {
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.2s ease;
+        }
+        
+        .sortable:hover {
+            background-color: #475569;
+        }
+        
+        .sort-indicator {
+            font-size: 0.8rem;
+            margin-left: 0.25rem;
+            color: #94a3b8;
+        }
+        
+        .sorted-asc .sort-indicator {
+            color: #10b981;
+            transform: rotate(180deg);
+        }
+        
+        .sorted-desc .sort-indicator {
+            color: #ef4444;
+        }
 
         .signal-table td {
             padding: 1rem;
@@ -80,8 +148,14 @@
             background-color: #253446;
         }
 
+        .signal-table tr {
+            transition: all 0.2s ease;
+        }
+
         .signal-table tr:hover {
             background-color: #334155;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .title {
@@ -127,6 +201,19 @@
             display: inline-block;
             max-width: 200px;
             word-break: break-word;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.2s ease;
+        }
+        
+        .market-tag:hover {
+            transform: scale(1.05);
+        }
+        
+        .market-tag-stock {
+            background-color: #475569;
+            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
         }
 
         .deepseek-evaluation {
@@ -135,7 +222,12 @@
             padding: 0.5rem 1rem;
             border-radius: 9999px;
             display: inline-block;
-            min-width: 80px;
+            min-width: 100px;
+            transition: all 0.2s ease;
+        }
+
+        .deepseek-evaluation:hover {
+            transform: scale(1.05);
         }
 
         .evaluation-long {
@@ -172,17 +264,92 @@
             background-color: #334155;
             border-radius: 6px;
             overflow: hidden;
+            position: relative;
         }
 
         .confidence-level {
             height: 100%;
-            background: linear-gradient(90deg, #10b981, #0ea5e9);
+            background: linear-gradient(90deg, #10b981, #0ea5e9, #8b5cf6);
+            transition: width 0.5s ease-in-out;
+            border-radius: 6px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .confidence-level::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
         }
 
         .confidence-text {
             font-size: 1rem;
             color: #f1f5f9;
             font-weight: 600;
+        }
+        
+        /* Expand/collapse functionality */
+        .expand-btn {
+            background: none;
+            border: none;
+            color: #0ea5e9;
+            cursor: pointer;
+            font-size: 0.8rem;
+            padding: 0.25rem;
+            margin-left: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        
+        .expand-btn:hover {
+            background-color: rgba(14, 165, 233, 0.1);
+            transform: scale(1.1);
+        }
+        
+        .expand-btn.expanded {
+            transform: rotate(90deg);
+        }
+        
+        .details-row {
+            background-color: #1e293b;
+            border-top: 1px solid #334155;
+        }
+        
+        .details-content {
+            padding: 1rem;
+            background-color: #1e293b;
+        }
+        
+        .details-content h4 {
+            color: #0ea5e9;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .details-section {
+            margin-bottom: 0.75rem;
+            padding: 0.5rem;
+            background-color: #253446;
+            border-radius: 6px;
+            color: #cbd5e1;
+        }
+        
+        .details-section strong {
+            color: #f1f5f9;
         }
 
         .info-box {
@@ -383,6 +550,74 @@
         .action-btn-secondary:hover {
             background-color: #475569;
         }
+        
+        /* Filters styling */
+        .filters-container {
+            background-color: #1e293b;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #334155;
+        }
+        
+        .filter-row {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .filter-group label {
+            color: #cbd5e1;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .filter-select {
+            background-color: #334155;
+            color: #f1f5f9;
+            border: 1px solid #475569;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .filter-select:hover {
+            background-color: #475569;
+            border-color: #64748b;
+        }
+        
+        .filter-select:focus {
+            outline: none;
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+        }
+        
+        /* Responsive filters */
+        @media (max-width: 768px) {
+            .filter-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .filter-group {
+                width: 100%;
+            }
+            
+            .filter-select {
+                flex: 1;
+                min-width: 200px;
+            }
+        }
 
         .action-btn-success {
             background-color: #10b981;
@@ -406,23 +641,82 @@
 
         .loading {
             text-align: center;
-            padding: 2rem;
+            padding: 3rem;
             color: #94a3b8;
         }
 
         .loading-spinner {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border: 4px solid #334155;
             border-top: 4px solid #0ea5e9;
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 10px rgba(14, 165, 233, 0.3);
         }
 
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+        
+        /* Auto-refresh notification */
+        .auto-refresh-notification {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background-color: #1e293b;
+            color: #f1f5f9;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            animation: slideInRight 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-left: 4px solid #0ea5e9;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .notification-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: 1rem;
+        }
+        
+        .notification-btn {
+            background-color: #334155;
+            color: #f1f5f9;
+            border: none;
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .notification-btn:hover {
+            background-color: #475569;
+        }
+        
+        .notification-btn-primary {
+            background-color: #0ea5e9;
+        }
+        
+        .notification-btn-primary:hover {
+            background-color: #0284c7;
         }
 
         .error {
@@ -471,6 +765,39 @@
 
         <div class="timestamp" id="timestamp">全球市场实时信号（2025-11-12 14:30 更新）</div>
 
+        <!-- Filters -->
+        <div class="filters-container">
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label for="market-filter">市场筛选：</label>
+                    <select id="market-filter" class="filter-select">
+                        <option value="all">全部市场</option>
+                        <option value="US">美国</option>
+                        <option value="CN">中国</option>
+                        <option value="HK">香港</option>
+                        <option value="JP">日本</option>
+                        <option value="KR">韩国</option>
+                        <option value="Crypto">加密货币</option>
+                        <option value="其他">其他</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="evaluation-filter">评价筛选：</label>
+                    <select id="evaluation-filter" class="filter-select">
+                        <option value="all">全部评价</option>
+                        <option value="LONG">📈 看涨</option>
+                        <option value="SHORT">📉 看跌</option>
+                        <option value="NEUTRAL">⚖️ 中性</option>
+                    </select>
+                </div>
+                
+                <button id="clear-filters" class="action-btn action-btn-secondary">
+                    清除筛选
+                </button>
+            </div>
+        </div>
+
         <div class="signal-table-container">
             <table class="signal-table">
                 <thead>
@@ -478,11 +805,17 @@
                         <th>序号</th>
                         <th>新闻标题</th>
                         <th>来源</th>
-                        <th>时间</th>
+                        <th class="sortable" data-sort="time">
+                            时间 <span class="sort-indicator">⬍</span>
+                        </th>
                         <th>相关市场/标的</th>
-                        <th>DeepSeek评价</th>
+                        <th class="sortable" data-sort="evaluation">
+                            DeepSeek评价 <span class="sort-indicator">⬍</span>
+                        </th>
                         <th>交易建议</th>
-                        <th>置信度</th>
+                        <th class="sortable" data-sort="confidence">
+                            置信度 <span class="sort-indicator">⬍</span>
+                        </th>
                     </tr>
                 </thead>
                 <tbody id="news-table-body">
@@ -534,6 +867,15 @@
         let isRefreshing = false;
         let refreshCountdownTimer = null;
         let refreshCountdownSeconds = REFRESH_INTERVAL_SECONDS;
+        let originalNewsData = [];
+        let currentSort = {
+            field: null,
+            direction: 'asc'
+        };
+        let currentFilters = {
+            market: 'all',
+            evaluation: 'all'
+        };
 
         document.addEventListener('DOMContentLoaded', function() {
             const refreshBtn = document.getElementById('refresh-btn');
@@ -553,7 +895,124 @@
                     generateReport();
                 });
             }
+            
+            // Add filter event listeners
+            const marketFilter = document.getElementById('market-filter');
+            const evaluationFilter = document.getElementById('evaluation-filter');
+            const clearFiltersBtn = document.getElementById('clear-filters');
+            
+            if (marketFilter) {
+                marketFilter.addEventListener('change', function() {
+                    currentFilters.market = this.value;
+                    applyFiltersAndSort();
+                });
+            }
+            
+            if (evaluationFilter) {
+                evaluationFilter.addEventListener('change', function() {
+                    currentFilters.evaluation = this.value;
+                    applyFiltersAndSort();
+                });
+            }
+            
+            if (clearFiltersBtn) {
+                clearFiltersBtn.addEventListener('click', function() {
+                    clearFilters();
+                });
+            }
         });
+        
+        function applyFiltersAndSort() {
+            // Apply filters first
+            let filteredData = applyFilters(originalNewsData);
+            
+            // Then apply sort if any
+            if (currentSort.field) {
+                filteredData = sortNewsData(filteredData, currentSort.field, currentSort.direction);
+            }
+            
+            // Display the result
+            displayNews(filteredData);
+        }
+        
+        function applyFilters(data) {
+            if (currentFilters.market === 'all' && currentFilters.evaluation === 'all') {
+                return data;
+            }
+            
+            return data.filter(item => {
+                // Market filter
+                let marketMatch = true;
+                if (currentFilters.market !== 'all') {
+                    marketMatch = false;
+                    if (item.markets && Array.isArray(item.markets)) {
+                        for (const market of item.markets) {
+                            if (market.title === currentFilters.market) {
+                                marketMatch = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+                
+                // Evaluation filter
+                let evaluationMatch = true;
+                if (currentFilters.evaluation !== 'all') {
+                    evaluationMatch = item.deepseek === currentFilters.evaluation;
+                }
+                
+                return marketMatch && evaluationMatch;
+            });
+        }
+        
+        function clearFilters() {
+            // Reset filter values
+            currentFilters = {
+                market: 'all',
+                evaluation: 'all'
+            };
+            
+            // Update UI
+            const marketFilter = document.getElementById('market-filter');
+            const evaluationFilter = document.getElementById('evaluation-filter');
+            
+            if (marketFilter) marketFilter.value = 'all';
+            if (evaluationFilter) evaluationFilter.value = 'all';
+            
+            // Reset sort
+            currentSort = {
+                field: null,
+                direction: 'asc'
+            };
+            document.querySelectorAll('.sortable').forEach(h => {
+                h.classList.remove('sorted-asc', 'sorted-desc');
+            });
+            
+            // Apply changes
+            displayNews(originalNewsData);
+        }
+        
+        function toggleDetails(rowId) {
+            // Find all expand buttons for this row id (there should be only one)
+            const expandBtns = document.querySelectorAll(`[data-row-id="${rowId}"]`);
+            expandBtns.forEach(btn => {
+                // Toggle button class and rotation
+                btn.classList.toggle('expanded');
+                
+                // Find the parent row and then the next sibling (which is the details row)
+                const mainRow = btn.closest('tr');
+                const detailsRow = mainRow.nextElementSibling;
+                
+                if (detailsRow && detailsRow.classList.contains('details-row')) {
+                    // Toggle details row visibility
+                    if (detailsRow.style.display === 'none' || detailsRow.style.display === '') {
+                        detailsRow.style.display = 'table-row';
+                    } else {
+                        detailsRow.style.display = 'none';
+                    }
+                }
+            });
+        }
 
         function setRefreshStatus(message) {
             const statusElement = document.getElementById('refresh-status-text');
@@ -602,11 +1061,61 @@
         }
 
         function triggerAutoRefresh() {
+            showAutoRefreshNotification();
             loadNews({
                 trigger: 'auto',
                 showTableLoader: false,
                 preserveTableOnError: true
             });
+        }
+        
+        function showAutoRefreshNotification() {
+            // Remove any existing notification
+            const existingNotification = document.querySelector('.auto-refresh-notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Create new notification
+            const notification = document.createElement('div');
+            notification.className = 'auto-refresh-notification';
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <strong>🔄 新信号可用</strong>
+                    <p>点击查看最新的市场信号</p>
+                </div>
+                <div class="notification-actions">
+                    <button class="notification-btn" id="refresh-now">立即刷新</button>
+                    <button class="notification-btn notification-btn-primary" id="dismiss-notification">稍后</button>
+                </div>
+            `;
+            
+            // Add to document
+            document.body.appendChild(notification);
+            
+            // Add event listeners
+            const refreshNowBtn = notification.querySelector('#refresh-now');
+            const dismissBtn = notification.querySelector('#dismiss-notification');
+            
+            if (refreshNowBtn) {
+                refreshNowBtn.addEventListener('click', () => {
+                    loadNews({ trigger: 'manual' });
+                    notification.remove();
+                });
+            }
+            
+            if (dismissBtn) {
+                dismissBtn.addEventListener('click', () => {
+                    notification.remove();
+                });
+            }
+            
+            // Auto-dismiss after 10 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 10000);
         }
 
         function formatTimeWithSeconds(date) {
@@ -636,6 +1145,79 @@
             const formattedTime = String(date.getHours()).padStart(2, '0') + ':' + 
                                 String(date.getMinutes()).padStart(2, '0');
             return `${formattedDate} ${formattedTime}`;
+        }
+        
+        function attachSortEventListeners() {
+            const sortableHeaders = document.querySelectorAll('.sortable');
+            sortableHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const field = header.dataset.sort;
+                    handleSort(field);
+                });
+            });
+        }
+        
+        function handleSort(field) {
+            // Reset all sort indicators
+            document.querySelectorAll('.sortable').forEach(h => {
+                h.classList.remove('sorted-asc', 'sorted-desc');
+            });
+            
+            // Determine sort direction
+            let direction = 'asc';
+            if (currentSort.field === field && currentSort.direction === 'asc') {
+                direction = 'desc';
+            }
+            
+            // Update current sort state
+            currentSort = {
+                field: field,
+                direction: direction
+            };
+            
+            // Apply filters and sort
+            applyFiltersAndSort();
+            
+            // Update sort indicator
+            const header = document.querySelector(`[data-sort="${field}"]`);
+            header.classList.add(direction === 'asc' ? 'sorted-asc' : 'sorted-desc');
+        }
+        
+        function sortNewsData(data, field, direction) {
+            const sorted = [...data];
+            
+            sorted.sort((a, b) => {
+                let aVal, bVal;
+                
+                switch (field) {
+                    case 'time':
+                        aVal = a.time || '';
+                        bVal = b.time || '';
+                        break;
+                    case 'evaluation':
+                        aVal = a.deepseek || 'NEUTRAL';
+                        bVal = b.deepseek || 'NEUTRAL';
+                        // Map evaluation to numeric values for sorting
+                        const evalMap = { 'SHORT': 0, 'NEUTRAL': 1, 'LONG': 2 };
+                        aVal = evalMap[aVal] || 1;
+                        bVal = evalMap[bVal] || 1;
+                        break;
+                    case 'confidence':
+                        aVal = parseInt(a.confidence) || 0;
+                        bVal = parseInt(b.confidence) || 0;
+                        break;
+                    default:
+                        return 0;
+                }
+                
+                if (direction === 'asc') {
+                    return aVal < bVal ? -1 : aVal > bVal ? 1 : 0;
+                } else {
+                    return aVal > bVal ? -1 : aVal < bVal ? 1 : 0;
+                }
+            });
+            
+            return sorted;
         }
 
         async function loadNews(options = {}) {
@@ -678,8 +1260,10 @@
                 
                 if (data.status === 'success') {
                     updateTimestamp(data.timestamp);
-                    displayNews(data.signals);
+                    originalNewsData = [...data.signals];
+                    displayNews(originalNewsData);
                     setRefreshStatus(`刷新完成：${formatTimeWithSeconds(new Date())}`);
+                    attachSortEventListeners();
                 } else {
                     throw new Error(data.error || 'Unknown error occurred');
                 }
@@ -828,40 +1412,60 @@
             newsData.forEach((item, index) => {
                 const row = document.createElement('tr');
                 
-                // Format markets/stocks
+                // Format markets/stocks with compact tags
                 let marketsHtml = '';
                 if (item.markets && Array.isArray(item.markets)) {
                     item.markets.forEach(market => {
-                        marketsHtml += `
-                            <div class="market-combo">
-                                <div class="market-combo-title">${market.title}：</div>
-                                <div class="market-combo-stocks">
-                                    ${market.stocks && market.stocks.length > 0 ? market.stocks.map(stock => `<div class="market-combo-stock">${stock}</div>`).join('') : '<div class="market-combo-stock">N/A</div>'}
-                                </div>
-                            </div>
-                        `;
+                        try {
+                            const marketTitle = market.title || '未知市场';
+                            marketsHtml += `<div class="market-tag">${escapeHtml(marketTitle)}</div>`;
+                            
+                            // Ensure stocks is an array
+                            const stocks = Array.isArray(market.stocks) ? market.stocks : [];
+                            if (stocks.length > 0) {
+                                stocks.forEach(stock => {
+                                    try {
+                                        marketsHtml += `<div class="market-tag market-tag-stock">${escapeHtml(String(stock))}</div>`;
+                                    } catch (e) {
+                                        console.error('Error formatting stock:', e);
+                                    }
+                                });
+                            }
+                        } catch (e) {
+                            console.error('Error formatting market:', e);
+                            marketsHtml += `<div class="market-tag">未知市场</div>`;
+                        }
                     });
                 } else {
-                    marketsHtml = `<div class="market-tag">${item.markets || 'N/A'}</div>`;
+                    marketsHtml = `<div class="market-tag">${item.markets ? escapeHtml(String(item.markets)) : 'N/A'}</div>`;
                 }
                 
-                // Format impact class
+                // Format impact class with icons
                 let impactClass = 'evaluation-neutral';
                 let impactText = item.deepseek || 'NEUTRAL';
+                let impactIcon = '⚖️';
                 if (item.deepseek === 'LONG') {
                     impactClass = 'evaluation-long';
+                    impactIcon = '📈';
                 } else if (item.deepseek === 'SHORT') {
                     impactClass = 'evaluation-short';
+                    impactIcon = '📉';
                 }
                 
+                // Create main row with expand/collapse button
                 row.innerHTML = `
-                    <td><strong>${item.id}</strong></td>
                     <td>
-                        <div class="title"><strong>${item.title}</strong></div>
-                        <div class="description">${item.description || ''}</div>
+                        <strong>${item.id}</strong>
+                        <button class="expand-btn" data-row-id="${item.id}">
+                            ▶️
+                        </button>
                     </td>
                     <td>
-                        <span class="source">${item.source}</span>
+                        <div class="title"><strong>${escapeHtml(item.title || '未命名信号')}</strong></div>
+                        <div class="description">${escapeHtml(item.description || '')}</div>
+                    </td>
+                    <td>
+                        <span class="source">${escapeHtml(item.source || 'Unknown')}</span>
                     </td>
                     <td>
                         <span class="time-stamp">${item.time}</span>
@@ -873,25 +1477,68 @@
                     </td>
                     <td>
                         <div class="deepseek-evaluation">
-                            <span class="${impactClass}">${impactText}</span>
+                            <span class="${impactClass}">${impactIcon} ${impactText}</span>
                         </div>
                     </td>
                     <td>
                         <div class="trading-suggestion">
-                            ${item.suggestion}
+                            ${escapeHtml(item.suggestion || '等待更多信息确认。')}
                         </div>
                     </td>
                     <td>
                         <div class="confidence-container">
                             <div class="confidence-bar">
-                                <div class="confidence-level" style="width: ${item.confidence}%"></div>
+                                <div class="confidence-level" style="width: ${item.confidence}%">
+                                </div>
                             </div>
                             <div class="confidence-text">${item.confidence}%</div>
                         </div>
                     </td>
                 `;
                 
+                // Create details row
+                const detailsRow = document.createElement('tr');
+                detailsRow.className = 'details-row';
+                detailsRow.style.display = 'none';
+                detailsRow.innerHTML = `
+                    <td colspan="8">
+                        <div class="details-content">
+                            <h4>新闻详情</h4>
+                            <div class="details-section">
+                                <strong>完整标题：</strong>${escapeHtml(item.title || '未命名信号')}
+                            </div>
+                            <div class="details-section">
+                                <strong>来源：</strong>${escapeHtml(item.source || 'Unknown')}
+                            </div>
+                            <div class="details-section">
+                                <strong>发布时间：</strong>${item.time}
+                            </div>
+                            <div class="details-section">
+                                <strong>完整描述：</strong>${escapeHtml(item.description || '无')}
+                            </div>
+                            <div class="details-section">
+                                <strong>完整交易建议：</strong>${escapeHtml(item.suggestion || '无')}
+                            </div>
+                            <div class="details-section">
+                                <strong>相关市场/标的：</strong>
+                                <div class="market-tags">
+                                    ${marketsHtml}
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                `;
+                
                 tbody.appendChild(row);
+                tbody.appendChild(detailsRow);
+                
+                // Add expand/collapse event listener
+                const expandBtn = row.querySelector('.expand-btn');
+                if (expandBtn) {
+                    expandBtn.addEventListener('click', function() {
+                        toggleDetails(item.id);
+                    });
+                }
             });
         }
 
